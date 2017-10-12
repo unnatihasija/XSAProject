@@ -1,0 +1,15 @@
+context partition1{
+ 
+/*@@layout{"layoutInfo":{"x":45,"y":55.5}}*/
+entity mynewentity1{
+ key id : LocalDate not null;
+a : Integer;
+b : Integer;
+c : Integer;
+}technical configuration {
+	partition by Range (year(id)) (partition 2014 <= values < 2015, partition 2016 <= values < 2017, partition others);
+
+	column store;
+};
+
+};
